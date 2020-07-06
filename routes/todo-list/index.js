@@ -10,5 +10,4 @@ const router = new Router()
 
 router.use('/todolist',require('./getlist'))
 
-
 module.exports = router.routes()

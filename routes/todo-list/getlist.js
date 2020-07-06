@@ -18,4 +18,19 @@ router.post('/add',async (ctx, next) => {
     let body = await Item.create(data) 
     ctx.body = R.set(body)
 })
+router.post('/update', async (ctx, next) => {
+    let data = ctx.request.body
+    console.log('2222',data)
+    //let body = await 
+    let result = await Item.update({_id:data.id},{$set:{done:data.done}})
+    // result(err, docs){
+    //     console.log('err ',err, docs)
+    //     if(err){
+    //         ctx.body = R.set(err, 500)
+    //     }
+    //     ctx.body = R.set(docs)
+    // }
+    console.log(`result    `,result)
+    ctx.body = R.set(result)
+})
 module.exports = router.routes()
